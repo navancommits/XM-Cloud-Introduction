@@ -34,6 +34,24 @@ namespace Mvp.Project.MvpSite.Middleware
 
             return graphQlResponse.Data.Search.Results;
         }
+
+        public async Task<List<Result>> GetSitemapXmlData()
+        {
+            var client = _graphQLClientFactory.CreateGraphQlClient();
+            var query = Constants.GraphQlQueries.GetSitemapSearchQuery;
+            var variables = (object)new
+            {
+                itemId = _configuration.SitemapXmlItemId,
+                language = _configuration.DefaultLanguage
+            };
+
+            var request = _graphQLRequestBuilder.BuildRequest(query, variables);
+            var graphQlResponse = await client.SendQueryAsync<SitemapData>(request);
+
+            var data= graphQlResponse.Data.Search.Results;
+
+            return data;
+        }
     }
 }
 

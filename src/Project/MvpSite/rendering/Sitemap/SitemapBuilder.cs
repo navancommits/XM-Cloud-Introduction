@@ -2,6 +2,7 @@ using DotnetSitemapGenerator;
 using DotnetSitemapGenerator.Serialization;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Mvp.Project.MvpSite.Rendering;

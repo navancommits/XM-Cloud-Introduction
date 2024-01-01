@@ -1,0 +1,64 @@
+﻿---
+ID: "90835135-7a91-4446-a08d-17436464ffaf"
+Parent: "d2f6ff70-28f6-416e-9882-182f96e4fa0c"
+Template: "a67f6a67-a7ef-44f4-8180-707c7d6cb9b6"
+Path: /sitecore/content/MvpSite/Shared Content/MVP Sitemap
+SharedFields:
+- ID: "25716319-1405-4db6-95f3-7e3cf6a9a501"
+  Hint: SitemapXml
+  Value: "<urlset><url><loc>https://xmcloudcm.localhost/About</loc><changefreq>daily</changefreq><priority>10</priority><lastmod>20231212T000919Z</lastmod></url><url><loc>https://xmcloudcm.localhost/Become-an-mvp</loc><changefreq>daily</changefreq><priority>10</priority><lastmod>20231212T000926Z</lastmod></url><url><loc>https://xmcloudcm.localhost/Benefits</loc><changefreq>daily</changefreq><priority>10</priority><lastmod>20231221T100900Z</lastmod></url><url><loc>https://xmcloudcm.localhost/Contact</loc><changefreq>daily</changefreq><priority>10</priority><lastmod>20231212T001400Z</lastmod></url><url><loc>https://xmcloudcm.localhost/Directory</loc><changefreq>daily</changefreq><priority>10</priority><lastmod>20231212T001405Z</lastmod></url><url><loc>https://xmcloudcm.localhost/Mentor-Program</loc><changefreq>daily</changefreq><priority>10</priority><lastmod>20231212T000942Z</lastmod></url><url><loc>https://xmcloudcm.localhost/Podcast</loc><changefreq>daily</changefreq><priority>10</priority><lastmod>20231212T001413Z</lastmod></url><url><loc>https://xmcloudcm.localhost/Thank-you</loc><changefreq>always</changefreq><priority>10</priority><lastmod>20231212T001431Z</lastmod></url></urlset>"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20231226T094543Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\qDWz4GMo2o
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\qDWz4GMo2o
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a1ef36e9-5882-403f-8879-f0e396a2045c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\qDWz4GMo2o
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20231226T094543Z
+  - Version: 2
+    Fields:
+    - ID: "21ea7588-3631-4c0b-a797-35ef9798382b"
+      Hint: myfield
+      Value: test
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20231231T042128Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\qDWz4GMo2o
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\qDWz4GMo2o
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c27b991c-fe3f-4cc3-842c-c9860717f3c0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\qDWz4GMo2o
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20231231T042128Z
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20231231T054627Z

@@ -106,7 +106,20 @@
         "name": "media",
         "path": "/sitecore/media library/Project/MvpSite",
         "allowedPushOperations": "CreateOnly"
+      },
+	  {
+        "name": "core-sitemapchunk",
+        "path": "/sitecore/content/Applications/Content Editor/Ribbons/Chunks/Sitemap",
+		"database": "core",
+        "allowedPushOperations": "CreateUpdateAndDelete"
+      },
+	  {
+        "name": "core-sitemapstrip",
+        "path": "/sitecore/content/Applications/Content Editor/Ribbons/Strips/Home/Sitemap",
+		"database": "core",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       }
+	  
     ]
   }
 }

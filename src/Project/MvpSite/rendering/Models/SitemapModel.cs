@@ -22,13 +22,23 @@ public class Priority
     public TargetItem TargetItem { get; set; }
 }
 
+//public class Result
+//{
+//    public Updateddatetime UpdatedDatetime { get; set; }
+//    public Url Url { get; set; }
+//    public string Name { get; set; }
+//    public Priority Priority { get; set; }
+//    public ChangeFrequency ChangeFrequency { get; set; }
+//}
+
 public class Result
 {
-    public Updateddatetime UpdatedDatetime { get; set; }
-    public Url Url { get; set; }
-    public string Name { get; set; }
-    public Priority Priority { get; set; }
-    public ChangeFrequency ChangeFrequency { get; set; }
+    public SitemapXml SitemapXml { get; set; }
+}
+
+public class SitemapXml
+{
+    public string Value { get; set; }
 }
 
 public class Root

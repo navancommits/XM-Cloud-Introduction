@@ -1,0 +1,53 @@
+﻿---
+ID: "8310d805-c107-4fc6-96e4-a2fca9093bcc"
+Parent: "66738f84-31a9-43c9-9fcf-1515a849d6c5"
+Template: "8f3d8f9b-2d76-4ace-803f-35415d2b230a"
+Path: /sitecore/content/Applications/Content Editor/Ribbons/Chunks/Sitemap
+SharedFields:
+- ID: "661c7d82-2c92-47d2-b41d-afc2dc5379aa"
+  Hint: Click
+  Value: "sitemap:generate"
+- ID: "8bb9a5e3-cae8-49c6-b830-258a51d970c9"
+  Hint: ID
+  Value: SitemapToolsChunk
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 99
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\Sitecore Client Authoring|pd|+item:read|pe|+item:read|ar|sitecore\Sitecore Limited Content Editor|pd|+item:read|pe|+item:read|ar|sitecore\Sitecore Client Content Reader|pd|+item:read|pe|+item:read|
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20060210T081110Z
+    - ID: "4061c1c7-dc71-4c1d-932d-22fd5a37adac"
+      Hint: Tooltip
+      Value: Useful in Generating Sitemap XML for MVP Site
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1f2181e7-e760-49d9-9ae6-a3bba5e8986c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\qDWz4GMo2o
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20060210T081110Z
+    - ID: "c95d21bd-66c3-444b-a37f-d346cbaf2b55"
+      Hint: Header
+      Value: Sitemap
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20231226T091541Z

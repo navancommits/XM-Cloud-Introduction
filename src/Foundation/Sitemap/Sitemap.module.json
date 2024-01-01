@@ -1,0 +1,12 @@
+{
+    "namespace": "Foundation.Sitemap",
+    "items": {
+        "includes": [
+            {
+                "name": "templates",
+                "path": "/sitecore/templates/Foundation/Sitemap",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            }
+        ]
+    }
+}

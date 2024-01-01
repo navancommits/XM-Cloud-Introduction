@@ -4,6 +4,9 @@ Parent: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
 Template: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
 Path: /sitecore/content/MvpSite/Home/Benefits
 SharedFields:
+- ID: "76fb6ffd-4487-4028-a1cf-705fbe360cba"
+  Hint: Priority
+  Value: "{F5FE29B6-3AA5-4648-8380-E67A5DC01D81}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 600
@@ -85,7 +88,7 @@ Languages:
       Value: 20200604T042302Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "83632de6-ce07-49c1-8e92-474bf754de74"
+      Value: "3c2015d4-9953-41bb-807b-30dffb64b2ca"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: MenuTitle
       Value: Benefits
@@ -95,4 +98,4 @@ Languages:
         sitecore\qDWz4GMo2o
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20231212T000931Z
+      Value: 20231221T100900Z

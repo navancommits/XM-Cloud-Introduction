@@ -66,10 +66,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Project\Project.MvpSite.config" />
+    <Content Include="App_Config\Include\Project\Project.MvpSite.Sitemap.config" />
     <None Include="Platform.wpp.targets" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="README.md" />
     <None Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sitemap\SitemapXml.cs" />
+    <Compile Include="Sitemap\SitemapGenerator.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

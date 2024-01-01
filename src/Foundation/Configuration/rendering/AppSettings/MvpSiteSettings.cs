@@ -12,6 +12,8 @@
 
         public string? RootItemId { get; set; }
 
+        public string? SitemapXmlItemId { get; set; }
+
         public string? NotFoundPage { get; set; }
 
         public string? DefaultAcceptLanguageHeader { get; set; }
