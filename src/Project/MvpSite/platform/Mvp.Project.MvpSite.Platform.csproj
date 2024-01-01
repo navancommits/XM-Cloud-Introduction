@@ -73,7 +73,6 @@
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sitemap\SitemapXml.cs" />
     <Compile Include="Sitemap\SitemapGenerator.cs" />
   </ItemGroup>
   <PropertyGroup>
