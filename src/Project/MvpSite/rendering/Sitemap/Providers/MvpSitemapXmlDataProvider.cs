@@ -6,6 +6,8 @@ using Microsoft.Extensions.Logging;
 using Mvp.Foundation.DataFetching.GraphQL;
 using Mvp.Project.MvpSite.Middleware;
 using Mvp.Project.MvpSite.Models;
+using Mvp.Project.MvpSite.Sitemap.Providers;
+using SitemapXmlModel;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,24 +18,21 @@ using System.Xml.Serialization;
 
 namespace Mvp.Project.MvpSite.Rendering;
 
-public class MvpSitemapDataProvider : ISitemapUrlProvider
+public class MvpSitemapXmlDataProvider : ISitemapProvider
 {
-    private readonly LinkGenerator _linkGenerator;
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly ILogger<MvpSitemapDataProvider> _logger;
+    private readonly ILogger<MvpSitemapXmlDataProvider> _logger;
     private readonly IGraphQLClientFactory _graphQLClientFactory;
     private readonly IGraphQLRequestBuilder _graphQLRequestBuilder;
     private readonly IConfiguration _configuration;
 
-    public MvpSitemapDataProvider(
-        LinkGenerator linkGenerator,
+    public MvpSitemapXmlDataProvider(
         IHttpContextAccessor httpContextAccessor,
-        ILogger<MvpSitemapDataProvider> logger,
+        ILogger<MvpSitemapXmlDataProvider> logger,
         IGraphQLClientFactory graphQLClientFactory,
         IGraphQLRequestBuilder graphQLRequestBuilder,
         IConfiguration configuration)
     {
-        _linkGenerator = linkGenerator;
         _httpContextAccessor = httpContextAccessor;
         _logger = logger;
         _graphQLClientFactory = graphQLClientFactory;
@@ -41,30 +40,7 @@ public class MvpSitemapDataProvider : ISitemapUrlProvider
         _configuration = configuration;
     }
 
-    private static DotnetSitemapGenerator.ChangeFrequency GetChangeFrequency(string changefreq)
-    {
-        if (string.IsNullOrWhiteSpace(changefreq)) { return DotnetSitemapGenerator.ChangeFrequency.Never; }
-
-        switch (changefreq.ToLowerInvariant())
-        {
-            case "always":
-                return DotnetSitemapGenerator.ChangeFrequency.Always;
-            case "daily":
-                return DotnetSitemapGenerator.ChangeFrequency.Daily;
-            case "weekly":
-                return DotnetSitemapGenerator.ChangeFrequency.Weekly;
-            case "yearly":
-                return DotnetSitemapGenerator.ChangeFrequency.Yearly;
-            case "hourly":
-                return DotnetSitemapGenerator.ChangeFrequency.Hourly;
-            case "never":
-                return DotnetSitemapGenerator.ChangeFrequency.Never;
-        }
-
-        return DotnetSitemapGenerator.ChangeFrequency.Never;
-    }
-
-    private Urlset GetXmlString(List<Result> result)
+    private Urlset GetXmlString(List<XmlResult> result)
     {
         var row = result.FirstOrDefault();        
         var sitemapxmlstring = row.SitemapXml.Value;
@@ -79,7 +55,7 @@ public class MvpSitemapDataProvider : ISitemapUrlProvider
     public Task<IReadOnlyCollection<SitemapNode>> GetNodes()
     {
         var nodes = new List<SitemapNode>();
-        var result = GetSiteMapXmlData();
+        var result = GetSiteMap();
 
         Urlset sitemap=GetXmlString(result);
 
@@ -95,7 +71,7 @@ public class MvpSitemapDataProvider : ISitemapUrlProvider
                 "yyyyMMdd'T'HHmmss'Z'",
                 CultureInfo.InvariantCulture),
                 Priority = Convert.ToDecimal(row.Priority),
-                ChangeFrequency = GetChangeFrequency(row.Changefreq)
+                ChangeFrequency = Common.GetChangeFrequency(row.Changefreq)
             };
             nodes.Add(node);
         }        
@@ -103,15 +79,9 @@ public class MvpSitemapDataProvider : ISitemapUrlProvider
         return Task.FromResult<IReadOnlyCollection<SitemapNode>>(nodes);
     }
 
-    private List<Result> GetSiteMapXmlData()
+    private List<XmlResult> GetSiteMap()
     {
         CustomGraphQlLayoutServiceHandler customGraphQlLayoutServiceHandler = new(_configuration, _graphQLRequestBuilder, _graphQLClientFactory);
-        return customGraphQlLayoutServiceHandler.GetSitemapXmlData().Result; 
+        return customGraphQlLayoutServiceHandler.GetSitemapXmlData().Result;
     }
-
-    //private List<Result> GetSiteMap()
-    //{
-    //    CustomGraphQlLayoutServiceHandler customGraphQlLayoutServiceHandler = new(_configuration, _graphQLRequestBuilder, _graphQLClientFactory);
-    //    return customGraphQlLayoutServiceHandler.GetSitemap().Result;
-    //}
 }

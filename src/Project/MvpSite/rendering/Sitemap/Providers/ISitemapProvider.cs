@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Mvp.Project.MvpSite.Rendering;
 
-public interface ISitemapUrlProvider
+public interface ISitemapProvider
 {
     Task<IReadOnlyCollection<SitemapNode>> GetNodes();
 }

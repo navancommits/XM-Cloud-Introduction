@@ -22,10 +22,6 @@
 	</Target>
 
 	<ItemGroup>
-	  <Compile Remove="Sitemap\Providers\MvpSitemapUrlProvider.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Content Remove="compilerconfig.json" />
 	</ItemGroup>
 

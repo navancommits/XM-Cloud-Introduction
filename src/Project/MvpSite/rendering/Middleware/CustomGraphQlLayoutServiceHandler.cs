@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Mvp.Foundation.Configuration.Rendering.AppSettings;
 using Mvp.Foundation.DataFetching.GraphQL;
+using SitemapDataModel;
+using SitemapXmlModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Mvp.Project.MvpSite.Middleware
 {
-    public class CustomGraphQlLayoutServiceHandler 
+    public class CustomGraphQlLayoutServiceHandler
     {
         private readonly IGraphQLRequestBuilder _graphQLRequestBuilder;
         private readonly IGraphQLClientFactory _graphQLClientFactory;
@@ -35,7 +37,7 @@ namespace Mvp.Project.MvpSite.Middleware
             return graphQlResponse.Data.Search.Results;
         }
 
-        public async Task<List<Result>> GetSitemapXmlData()
+        public async Task<List<XmlResult>> GetSitemapXmlData()
         {
             var client = _graphQLClientFactory.CreateGraphQlClient();
             var query = Constants.GraphQlQueries.GetSitemapSearchQuery;
@@ -46,7 +48,7 @@ namespace Mvp.Project.MvpSite.Middleware
             };
 
             var request = _graphQLRequestBuilder.BuildRequest(query, variables);
-            var graphQlResponse = await client.SendQueryAsync<SitemapData>(request);
+            var graphQlResponse = await client.SendQueryAsync<SitemapXmlModel.SitemapXmlData>(request);
 
             var data= graphQlResponse.Data.Search.Results;
 

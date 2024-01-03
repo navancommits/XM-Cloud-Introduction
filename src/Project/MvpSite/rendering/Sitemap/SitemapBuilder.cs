@@ -9,9 +9,9 @@ namespace Mvp.Project.MvpSite.Rendering;
 
 public class SitemapBuilder
 {
-    private readonly IEnumerable<ISitemapUrlProvider> _providers;
+    private readonly IEnumerable<ISitemapProvider> _providers;
 
-    public SitemapBuilder(IEnumerable<ISitemapUrlProvider> providers)
+    public SitemapBuilder(IEnumerable<ISitemapProvider> providers)
     {
         _providers = providers;
     }
