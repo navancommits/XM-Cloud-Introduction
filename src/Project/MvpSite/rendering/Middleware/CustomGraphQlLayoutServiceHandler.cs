@@ -7,21 +7,28 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Mvp.Project.MvpSite.Middleware
-{
-    public class CustomGraphQlLayoutServiceHandler
+{   
+
+    public abstract class CustomGraphQlLayoutBaseServiceHandler<T>
+    {
+        public abstract Task<List<T>> GetSitemap();
+    }
+
+    public class CustomGraphQlSitemapUrlServiceHandler : CustomGraphQlLayoutBaseServiceHandler<Result>
     {
         private readonly IGraphQLRequestBuilder _graphQLRequestBuilder;
         private readonly IGraphQLClientFactory _graphQLClientFactory;
         private readonly MvpSiteSettings _configuration;
 
-        public CustomGraphQlLayoutServiceHandler(IConfiguration configuration, IGraphQLRequestBuilder graphQLRequestBuilder, IGraphQLClientFactory graphQLClientFactory)
+        public CustomGraphQlSitemapUrlServiceHandler(IConfiguration configuration, IGraphQLRequestBuilder graphQLRequestBuilder, IGraphQLClientFactory graphQLClientFactory)
         {
             _graphQLRequestBuilder = graphQLRequestBuilder;
             _graphQLClientFactory = graphQLClientFactory;
             _configuration = configuration.GetSection(MvpSiteSettings.Key).Get<MvpSiteSettings>();
         }
+        
 
-        public async Task<List<Result>> GetSitemap()
+        public async override Task<List<Result>> GetSitemap()
         {
             var client = _graphQLClientFactory.CreateGraphQlClient();
             var query = Constants.GraphQlQueries.GetSitemapQuery;
@@ -36,8 +43,22 @@ namespace Mvp.Project.MvpSite.Middleware
 
             return graphQlResponse.Data.Search.Results;
         }
+    }
 
-        public async Task<List<XmlResult>> GetSitemapXmlData()
+    public class CustomGraphQlSitemapXmlServiceHandler : CustomGraphQlLayoutBaseServiceHandler<XmlResult>
+    {
+        private readonly IGraphQLRequestBuilder _graphQLRequestBuilder;
+        private readonly IGraphQLClientFactory _graphQLClientFactory;
+        private readonly MvpSiteSettings _configuration;
+
+        public CustomGraphQlSitemapXmlServiceHandler(IConfiguration configuration, IGraphQLRequestBuilder graphQLRequestBuilder, IGraphQLClientFactory graphQLClientFactory)
+        {
+            _graphQLRequestBuilder = graphQLRequestBuilder;
+            _graphQLClientFactory = graphQLClientFactory;
+            _configuration = configuration.GetSection(MvpSiteSettings.Key).Get<MvpSiteSettings>();
+        }
+
+        public async override Task<List<XmlResult>> GetSitemap()
         {
             var client = _graphQLClientFactory.CreateGraphQlClient();
             var query = Constants.GraphQlQueries.GetSitemapSearchQuery;
@@ -48,11 +69,9 @@ namespace Mvp.Project.MvpSite.Middleware
             };
 
             var request = _graphQLRequestBuilder.BuildRequest(query, variables);
-            var graphQlResponse = await client.SendQueryAsync<SitemapXmlModel.SitemapXmlData>(request);
+            var graphQlResponse = await client.SendQueryAsync<SitemapXmlData>(request);
 
-            var data= graphQlResponse.Data.Search.Results;
-
-            return data;
+            return graphQlResponse.Data.Search.Results;
         }
     }
 }

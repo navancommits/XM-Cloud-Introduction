@@ -1,6 +1,5 @@
 using DotnetSitemapGenerator;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Mvp.Foundation.DataFetching.GraphQL;
@@ -81,7 +80,7 @@ public class MvpSitemapXmlDataProvider : ISitemapProvider
 
     private List<XmlResult> GetSiteMap()
     {
-        CustomGraphQlLayoutServiceHandler customGraphQlLayoutServiceHandler = new(_configuration, _graphQLRequestBuilder, _graphQLClientFactory);
-        return customGraphQlLayoutServiceHandler.GetSitemapXmlData().Result;
+        CustomGraphQlSitemapXmlServiceHandler customGraphQlLayoutServiceHandler = new(_configuration, _graphQLRequestBuilder, _graphQLClientFactory);
+        return customGraphQlLayoutServiceHandler.GetSitemap().Result;
     }
 }

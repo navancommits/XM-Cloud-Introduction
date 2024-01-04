@@ -62,7 +62,7 @@ public class MvpSitemapUrlProvider : ISitemapProvider
 
     private List<Result> GetSiteMap()
     {
-        CustomGraphQlLayoutServiceHandler customGraphQlLayoutServiceHandler = new(_configuration, _graphQLRequestBuilder, _graphQLClientFactory);
+        CustomGraphQlSitemapUrlServiceHandler customGraphQlLayoutServiceHandler = new(_configuration, _graphQLRequestBuilder, _graphQLClientFactory);
         return  customGraphQlLayoutServiceHandler.GetSitemap().Result;
     }
 }
